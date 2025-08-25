@@ -14,7 +14,390 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      alerts: {
+        Row: {
+          acknowledged_at: string | null
+          acknowledged_by: string | null
+          created_at: string
+          device_id: string | null
+          id: string
+          is_acknowledged: boolean | null
+          message: string
+          metadata: Json | null
+          resolved_at: string | null
+          severity: string
+          title: string
+          type: string
+        }
+        Insert: {
+          acknowledged_at?: string | null
+          acknowledged_by?: string | null
+          created_at?: string
+          device_id?: string | null
+          id?: string
+          is_acknowledged?: boolean | null
+          message: string
+          metadata?: Json | null
+          resolved_at?: string | null
+          severity: string
+          title: string
+          type: string
+        }
+        Update: {
+          acknowledged_at?: string | null
+          acknowledged_by?: string | null
+          created_at?: string
+          device_id?: string | null
+          id?: string
+          is_acknowledged?: boolean | null
+          message?: string
+          metadata?: Json | null
+          resolved_at?: string | null
+          severity?: string
+          title?: string
+          type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "alerts_device_id_fkey"
+            columns: ["device_id"]
+            isOneToOne: false
+            referencedRelation: "devices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      api_keys: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          expires_at: string | null
+          id: string
+          is_active: boolean | null
+          key_hash: string
+          key_prefix: string
+          last_used_at: string | null
+          name: string
+          permissions: Json
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          key_hash: string
+          key_prefix: string
+          last_used_at?: string | null
+          name: string
+          permissions?: Json
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          key_hash?: string
+          key_prefix?: string
+          last_used_at?: string | null
+          name?: string
+          permissions?: Json
+        }
+        Relationships: []
+      }
+      device_logs: {
+        Row: {
+          device_id: string | null
+          id: string
+          log_level: string
+          message: string
+          metadata: Json | null
+          timestamp: string
+        }
+        Insert: {
+          device_id?: string | null
+          id?: string
+          log_level: string
+          message: string
+          metadata?: Json | null
+          timestamp?: string
+        }
+        Update: {
+          device_id?: string | null
+          id?: string
+          log_level?: string
+          message?: string
+          metadata?: Json | null
+          timestamp?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "device_logs_device_id_fkey"
+            columns: ["device_id"]
+            isOneToOne: false
+            referencedRelation: "devices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      devices: {
+        Row: {
+          battery_level: number | null
+          cpu_usage: number | null
+          created_at: string
+          device_id: string
+          firmware_version: string | null
+          id: string
+          last_seen: string | null
+          location: Json
+          memory_usage: number | null
+          name: string
+          provisioning_secret: string | null
+          signal_strength: number | null
+          status: string
+          temperature: number | null
+          updated_at: string
+        }
+        Insert: {
+          battery_level?: number | null
+          cpu_usage?: number | null
+          created_at?: string
+          device_id: string
+          firmware_version?: string | null
+          id?: string
+          last_seen?: string | null
+          location: Json
+          memory_usage?: number | null
+          name: string
+          provisioning_secret?: string | null
+          signal_strength?: number | null
+          status?: string
+          temperature?: number | null
+          updated_at?: string
+        }
+        Update: {
+          battery_level?: number | null
+          cpu_usage?: number | null
+          created_at?: string
+          device_id?: string
+          firmware_version?: string | null
+          id?: string
+          last_seen?: string | null
+          location?: Json
+          memory_usage?: number | null
+          name?: string
+          provisioning_secret?: string | null
+          signal_strength?: number | null
+          status?: string
+          temperature?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      entries: {
+        Row: {
+          acknowledged_at: string | null
+          acknowledged_by: string | null
+          amount: number
+          confidence_score: number | null
+          created_at: string
+          device_id: string | null
+          entry_time: string
+          id: string
+          image_url: string | null
+          is_flagged: boolean | null
+          notes: string | null
+          payment_method: string | null
+          rfid_tag: string | null
+          status: string
+          transaction_id: string | null
+          vehicle_plate: string
+        }
+        Insert: {
+          acknowledged_at?: string | null
+          acknowledged_by?: string | null
+          amount: number
+          confidence_score?: number | null
+          created_at?: string
+          device_id?: string | null
+          entry_time?: string
+          id?: string
+          image_url?: string | null
+          is_flagged?: boolean | null
+          notes?: string | null
+          payment_method?: string | null
+          rfid_tag?: string | null
+          status?: string
+          transaction_id?: string | null
+          vehicle_plate: string
+        }
+        Update: {
+          acknowledged_at?: string | null
+          acknowledged_by?: string | null
+          amount?: number
+          confidence_score?: number | null
+          created_at?: string
+          device_id?: string | null
+          entry_time?: string
+          id?: string
+          image_url?: string | null
+          is_flagged?: boolean | null
+          notes?: string | null
+          payment_method?: string | null
+          rfid_tag?: string | null
+          status?: string
+          transaction_id?: string | null
+          vehicle_plate?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "entries_device_id_fkey"
+            columns: ["device_id"]
+            isOneToOne: false
+            referencedRelation: "devices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      fee_rules: {
+        Row: {
+          base_amount: number
+          created_at: string
+          device_ids: string[] | null
+          id: string
+          is_active: boolean | null
+          name: string
+          priority: number | null
+          rule_type: string
+          time_conditions: Json | null
+          updated_at: string
+          valid_from: string | null
+          valid_until: string | null
+          vehicle_type: string | null
+        }
+        Insert: {
+          base_amount: number
+          created_at?: string
+          device_ids?: string[] | null
+          id?: string
+          is_active?: boolean | null
+          name: string
+          priority?: number | null
+          rule_type: string
+          time_conditions?: Json | null
+          updated_at?: string
+          valid_from?: string | null
+          valid_until?: string | null
+          vehicle_type?: string | null
+        }
+        Update: {
+          base_amount?: number
+          created_at?: string
+          device_ids?: string[] | null
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          priority?: number | null
+          rule_type?: string
+          time_conditions?: Json | null
+          updated_at?: string
+          valid_from?: string | null
+          valid_until?: string | null
+          vehicle_type?: string | null
+        }
+        Relationships: []
+      }
+      reconciliation_files: {
+        Row: {
+          created_at: string
+          discrepancies: Json | null
+          discrepancies_count: number | null
+          file_url: string
+          filename: string
+          id: string
+          processed_at: string | null
+          processed_by: string | null
+          provider: string
+          status: string
+          total_amount: number | null
+          transaction_count: number | null
+          upload_date: string
+        }
+        Insert: {
+          created_at?: string
+          discrepancies?: Json | null
+          discrepancies_count?: number | null
+          file_url: string
+          filename: string
+          id?: string
+          processed_at?: string | null
+          processed_by?: string | null
+          provider: string
+          status?: string
+          total_amount?: number | null
+          transaction_count?: number | null
+          upload_date?: string
+        }
+        Update: {
+          created_at?: string
+          discrepancies?: Json | null
+          discrepancies_count?: number | null
+          file_url?: string
+          filename?: string
+          id?: string
+          processed_at?: string | null
+          processed_by?: string | null
+          provider?: string
+          status?: string
+          total_amount?: number | null
+          transaction_count?: number | null
+          upload_date?: string
+        }
+        Relationships: []
+      }
+      webhooks: {
+        Row: {
+          created_at: string
+          events: string[]
+          id: string
+          is_active: boolean | null
+          last_response_status: number | null
+          last_triggered_at: string | null
+          name: string
+          retry_count: number | null
+          secret: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          events?: string[]
+          id?: string
+          is_active?: boolean | null
+          last_response_status?: number | null
+          last_triggered_at?: string | null
+          name: string
+          retry_count?: number | null
+          secret: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          events?: string[]
+          id?: string
+          is_active?: boolean | null
+          last_response_status?: number | null
+          last_triggered_at?: string | null
+          name?: string
+          retry_count?: number | null
+          secret?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
