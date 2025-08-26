@@ -91,7 +91,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
               )}
             >
               <item.icon className={cn("w-5 h-5", isRTL ? "ml-3" : "mr-3")} />
-              <span className="flex-1">{t(item.label)}</span>
+              <span className="flex-1">{t(item.label as any)}</span>
               {item.count && (
                 <Badge variant="secondary" className="ml-auto rtl:mr-auto rtl:ml-0">
                   {item.count}
@@ -151,7 +151,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
                   )}
                 >
                   <item.icon className={cn("w-5 h-5", isRTL ? "ml-3" : "mr-3")} />
-                  <span className="flex-1">{t(item.label)}</span>
+                  <span className="flex-1">{t(item.label as any)}</span>
                   {item.count && (
                     <Badge variant="secondary" className="ml-auto rtl:mr-auto rtl:ml-0">
                       {item.count}

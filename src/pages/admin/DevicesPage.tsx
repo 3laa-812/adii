@@ -200,11 +200,11 @@ export function DevicesPage() {
     const variants = {
       online: 'default',
       offline: 'destructive',
-      maintenance: 'warning',
+      maintenance: 'secondary',
       rebooting: 'secondary'
     } as const;
 
-    return <Badge variant={variants[status as keyof typeof variants]}>{t(status)}</Badge>;
+    return <Badge variant={variants[status as keyof typeof variants]}>{t(status as any)}</Badge>;
   };
 
   const getSignalIcon = (strength: number) => {
