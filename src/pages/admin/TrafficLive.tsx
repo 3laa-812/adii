@@ -130,12 +130,12 @@ export function TrafficLive() {
   const getStatusBadge = (status: string) => {
     const variants = {
       paid: 'default',
-      pending: 'warning',
+      pending: 'secondary',
       failed: 'destructive',
       disputed: 'secondary'
     } as const;
 
-    return <Badge variant={variants[status as keyof typeof variants]}>{t(status)}</Badge>;
+    return <Badge variant={variants[status as keyof typeof variants]}>{t(status as any)}</Badge>;
   };
 
   return (
