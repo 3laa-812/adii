@@ -44,7 +44,7 @@ export const Features = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group bg-gradient-card p-8 rounded-2xl shadow-card hover:shadow-soft transition-all duration-300 hover:-translate-y-2 animate-fade-in"
+              className="group bg-gradient-card p-8 rounded-2xl shadow-card hover:shadow-soft transition-all duration-200 hover:-translate-y-3 animate-fade-in"
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Icon */}
