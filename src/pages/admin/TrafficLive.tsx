@@ -101,7 +101,7 @@ export function TrafficLive() {
       };
 
       setEntries(prev => [newEntry, ...prev.slice(0, 49)]);
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [isLive]);
