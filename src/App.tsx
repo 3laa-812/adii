@@ -12,6 +12,8 @@ import { Dashboard } from "./pages/Dashboard";
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { TrafficLive } from "./pages/admin/TrafficLive";
 import { DevicesPage } from "./pages/admin/DevicesPage";
+import { VehiclesPage } from "./pages/VehiclesPage";
+import { WalletPage } from "./pages/WalletPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +37,8 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/vehicles" element={<VehiclesPage />} />
+            <Route path="/wallet" element={<WalletPage />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminDashboard />} />
