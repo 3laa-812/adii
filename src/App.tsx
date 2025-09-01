@@ -12,6 +12,12 @@ import { Dashboard } from "./pages/Dashboard";
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { TrafficLive } from "./pages/admin/TrafficLive";
 import { DevicesPage } from "./pages/admin/DevicesPage";
+import { EntriesPage } from "./pages/admin/EntriesPage";
+import { AccountsPage } from "./pages/admin/AccountsPage";
+import { PricingPage } from "./pages/admin/PricingPage";
+import { FinancePage } from "./pages/admin/FinancePage";
+import { ReportsPage } from "./pages/admin/ReportsPage";
+import { SettingsPage } from "./pages/admin/SettingsPage";
 import { VehiclesPage } from "./pages/VehiclesPage";
 import { WalletPage } from "./pages/WalletPage";
 import NotFound from "./pages/NotFound";
@@ -44,6 +50,12 @@ const App = () => {
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/traffic" element={<TrafficLive />} />
             <Route path="/admin/devices" element={<DevicesPage />} />
+            <Route path="/admin/entries" element={<EntriesPage />} />
+            <Route path="/admin/accounts" element={<AccountsPage />} />
+            <Route path="/admin/pricing" element={<PricingPage />} />
+            <Route path="/admin/finance" element={<FinancePage />} />
+            <Route path="/admin/reports" element={<ReportsPage />} />
+            <Route path="/admin/settings" element={<SettingsPage />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
