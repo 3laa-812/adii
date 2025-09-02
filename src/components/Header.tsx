@@ -16,6 +16,7 @@ export const Header = () => {
     { name: t('dashboard', locale), href: '/dashboard', auth: true },
     { name: t('vehicles', locale), href: '/vehicles', auth: true },
     { name: t('wallet', locale), href: '/wallet', auth: true },
+    { name: 'Transactions', href: '/transactions', auth: true },
   ];
 
   const filteredNavigation = navigation.filter(item => 
