@@ -24,6 +24,12 @@ interface ReconciliationFile {
   total_amount?: number | null;
   discrepancies_count: number | null;
   discrepancies: any;
+  file_url: string;
+  created_at: string;
+  processed_at?: string | null;
+  processed_by?: string | null;
+}
+  discrepancies: any;
   processed_at?: string | null;
   processed_by?: string | null;
   file_url: string;
