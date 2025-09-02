@@ -29,12 +29,6 @@ interface ReconciliationFile {
   processed_at?: string | null;
   processed_by?: string | null;
 }
-  discrepancies: any;
-  processed_at?: string | null;
-  processed_by?: string | null;
-  file_url: string;
-  created_at: string;
-}
 
 interface Discrepancy {
   type: 'missing_transaction' | 'amount_mismatch' | 'duplicate' | 'unknown_transaction';
