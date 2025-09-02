@@ -19,11 +19,13 @@ interface ApiKey {
   id: string;
   name: string;
   key_prefix: string;
-  permissions: string[];
+  permissions: any;
   created_at: string;
-  last_used_at?: string;
+  last_used_at?: string | null;
   is_active: boolean;
-  expires_at?: string;
+  expires_at?: string | null;
+  key_hash: string;
+  created_by: string | null;
 }
 
 interface WebhookConfig {

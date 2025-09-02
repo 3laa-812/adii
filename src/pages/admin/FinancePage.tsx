@@ -19,13 +19,15 @@ interface ReconciliationFile {
   filename: string;
   provider: string;
   upload_date: string;
-  status: 'pending' | 'processing' | 'completed' | 'failed';
-  transaction_count?: number;
-  total_amount?: number;
-  discrepancies_count: number;
-  discrepancies: any[];
-  processed_at?: string;
-  processed_by?: string;
+  status: string;
+  transaction_count?: number | null;
+  total_amount?: number | null;
+  discrepancies_count: number | null;
+  discrepancies: any;
+  processed_at?: string | null;
+  processed_by?: string | null;
+  file_url: string;
+  created_at: string;
 }
 
 interface Discrepancy {

@@ -17,14 +17,17 @@ import { useToast } from "@/hooks/use-toast";
 interface FeeRule {
   id: string;
   name: string;
-  rule_type: 'flat' | 'time_of_day' | 'vehicle_type';
+  rule_type: string;
   base_amount: number;
-  vehicle_type?: string;
-  time_conditions?: any;
+  vehicle_type: string | null;
+  time_conditions: any;
+  device_ids: string[];
   is_active: boolean;
-  priority: number;
   valid_from: string;
-  valid_until?: string;
+  valid_until: string | null;
+  priority: number;
+  created_at: string;
+  updated_at: string;
 }
 
 interface SimulationResult {
@@ -183,7 +186,7 @@ export const PricingPage = () => {
   const handleEdit = (rule: FeeRule) => {
     setFormData({
       name: rule.name,
-      rule_type: rule.rule_type,
+      rule_type: rule.rule_type as 'flat' | 'time_of_day' | 'vehicle_type',
       base_amount: rule.base_amount.toString(),
       vehicle_type: rule.vehicle_type || "",
       time_conditions: rule.time_conditions ? JSON.stringify(rule.time_conditions, null, 2) : "",
