@@ -35,57 +35,6 @@ A modern, bilingual (Arabic RTL + English) Smart Toll Collection System frontend
 - **Icons**: Lucide React
 - **Build Tool**: Vite with SWC
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd smart-toll-collection
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
-
-5. **Preview production build**
-   ```bash
-   npm run preview
-   ```
-
-### Environment Setup
-
-Create a `.env.local` file in the root directory:
-
-```env
-# API Configuration
-VITE_API_BASE_URL=http://localhost:3001/api
-VITE_APP_TITLE=Smart Toll Collection
-
-# Authentication
-VITE_JWT_SECRET=your-jwt-secret-key
-
-# Payment Integration
-VITE_VODAFONE_CASH_API=your-vodafone-api-key
-VITE_FAWRY_API=your-fawry-api-key
-```
-
 ## 📱 Pages & Routes
 
 ### Public Routes
@@ -125,58 +74,6 @@ VITE_FAWRY_API=your-fawry-api-key
 - Responsive card layouts with gradients
 - RTL-aware spacing and animations
 
-## 🌍 Internationalization
-
-The app supports full bilingual functionality:
-
-```typescript
-// Usage example
-import { t } from '@/lib/i18n';
-import { useI18nStore } from '@/stores/useI18nStore';
-
-const { locale } = useI18nStore();
-const title = t('heroTitle', locale); // Auto-switches between EN/AR
-```
-
-### Adding New Translations
-1. Add keys to `src/lib/i18n.ts`
-2. Update both English and Arabic translations
-3. Use the `t()` function in components
-
-## 📡 API Integration
-
-### Mock API Endpoints
-Current implementation uses mock APIs. Replace with real backend:
-
-```typescript
-// Authentication
-POST /auth/signup
-POST /auth/login
-POST /auth/refresh
-
-// User Management
-GET /user/profile
-PATCH /user/profile
-
-// Wallet & Payments
-GET /wallet
-POST /wallet/topup
-PATCH /wallet/auto-topup
-
-// Vehicles
-GET /vehicles
-POST /vehicles
-PATCH /vehicles/:id
-DELETE /vehicles/:id
-
-// Transactions
-GET /transactions
-GET /transactions/:id
-```
-
-### Real API Integration
-Replace mock functions in `src/stores/useAuthStore.ts` and create API client in `src/lib/api.ts`.
-
 ## 🧪 Testing
 
 ### Demo Credentials
@@ -192,7 +89,7 @@ Replace mock functions in `src/stores/useAuthStore.ts` and create API client in 
 
 ## 📦 Project Structure
 
-```
+```css
 src/
 ├── assets/           # Images and static files
 ├── components/       # Reusable UI components
@@ -225,19 +122,6 @@ src/
 - **Form Validation**: Zod schema validation
 - **Phone Verification**: OTP-based registration
 
-## 🚀 Deployment
-
-### Vercel (Recommended)
-1. Connect GitHub repository to Vercel
-2. Configure environment variables
-3. Deploy automatically on push
-
-### Manual Deployment
-```bash
-npm run build
-# Upload dist/ folder to your hosting provider
-```
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -253,9 +137,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🆘 Support
 
 For support and questions:
-- 📧 Email: support@smarttoll.com
-- 📱 Phone: +20-123-456-7890
-- 💬 Discord: [Smart Toll Community](https://discord.gg/smarttoll)
+- 📧 Email: 3laa.r.812@gmail.com
+- 📱 Phone: +201033527373
 
 ---
 
