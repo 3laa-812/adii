@@ -30,7 +30,7 @@ interface AuthStore {
   isLoading: boolean;
   login: (credentials: LoginCredentials) => Promise<void>;
   signup: (userData: SignupData) => Promise<void>;
-  logout: () => Promise<void>;
+  logout: () => void;
   setUser: (user: User) => void;
   updateBalance: (balance: number) => void;
 }
