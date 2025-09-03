@@ -194,6 +194,20 @@ export const useAuthStore = create<AuthStore>()(
         token: state.token,
         isAuthenticated: state.isAuthenticated 
       }),
+      onRehydrateStorage: () => (state) => {
+        // Validate UUID format and clear invalid data
+        if (state?.user?.id && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(state.user.id)) {
+          console.warn('Invalid user ID format detected, clearing auth data');
+          localStorage.removeItem('auth-storage');
+          Cookies.remove('token');
+          Cookies.remove('refreshToken');
+          return {
+            user: null,
+            token: null,
+            isAuthenticated: false
+          };
+        }
+      },
     }
   )
 );
